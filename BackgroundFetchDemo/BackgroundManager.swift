@@ -14,11 +14,16 @@ protocol BackgroundManagerTaskProtocol {
     // under "Permitted background task scheduler identifiers"
     var taskID: String { get }
 
+    // Date of earliest first execution
+    var firstDateTime: Date { get }
+
     // Date of earliest next execution
     var nextDateTime: Date { get }
 
     // Function to perform the task
     func performTask(completion: ((Bool) -> Void)?)
+
+    func cancelTask()
 }
 
 class BackgroundManager {
@@ -37,12 +42,12 @@ class BackgroundManager {
 
     func sceneDidEnterBackground() {
 
-        scheduleBackgroundFetch(on: self.task.nextDateTime)
+        scheduleBackgroundFetch(on: self.task.firstDateTime)
     }
 
     func sceneWillEnterForeground() {
 
-        BGTaskScheduler.shared.cancelAllTaskRequests()
+//        BGTaskScheduler.shared.cancelAllTaskRequests()
     }
 }
 
@@ -69,16 +74,25 @@ extension BackgroundManager {
 // schedule background fetch
 extension BackgroundManager {
 
+    static let dateFormatter: DateFormatter = {
+
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateStyle = .short
+        dateFormatter.timeStyle = .short
+
+        return dateFormatter
+    }()
+
     fileprivate func scheduleBackgroundFetch(on date: Date) {
 
-        let taskDate = max(date, Date(timeIntervalSinceNow: 15.0 * 60.0)) // Fetch no earlier than 15 minutes from now
+        let taskDate = max(date, Date(timeIntervalSinceNow: 5.0 * 60.0)) // Fetch no earlier than 5 minutes from now
 
         let request = BGAppRefreshTaskRequest(identifier: self.task.taskID)
         request.earliestBeginDate = taskDate
 
         do {
             try BGTaskScheduler.shared.submit(request)
-            print("Successfully scheduled background fetch on \(taskDate).")
+            print("Successfully scheduled background fetch for \(Self.dateFormatter.string(from: taskDate)).")
 
         } catch {
 
@@ -93,15 +107,20 @@ extension BackgroundManager {
     func performBackgroundFetch(bgTask: BGTask?) {
 
         bgTask?.expirationHandler = {
+
             print("Background task expired: \(self.task.taskID)")
+
+            self.task.cancelTask()
+
             bgTask?.setTaskCompleted(success: false)
         }
 
+        print("Performing Background Task: \(self.task.taskID) at \(Self.dateFormatter.string(from: Date()))")
         self.task.performTask { success in
 
             guard let bgTask = bgTask else { return }
 
-            bgTask.setTaskCompleted(success: true)
+            bgTask.setTaskCompleted(success: success)
 
             self.scheduleBackgroundFetch(on: self.task.nextDateTime)
         }

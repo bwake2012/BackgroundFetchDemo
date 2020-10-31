@@ -9,12 +9,16 @@ import Foundation
 
 struct TaskLedgerTask: BackgroundManagerTaskProtocol {
 
-    private var ledgerURL: URL { return BackgroundTaskLedger.ledgerURL }
-
-    private let delayInterval: TimeInterval = 15 * 60
+    private let firstDelayInterval: TimeInterval = 5 * 60
+    private let delayInterval: TimeInterval = 5 * 60
 
     // MARK:
     var taskID: String { return "net.cockleburr.BackgroundFetchDemo.backgroundFetch" }
+
+    var firstDateTime: Date {
+
+        return Date(timeIntervalSinceNow: firstDelayInterval)
+    }
 
     var nextDateTime: Date {
 
@@ -23,13 +27,12 @@ struct TaskLedgerTask: BackgroundManagerTaskProtocol {
 
     func performTask(completion: ((Bool) -> Void)?) {
 
-        var ledger = BackgroundTaskLedger(ledgerURL: ledgerURL)
+        var ledger = BackgroundTaskLedger()
         ledger.addEntry()
-        ledger.save(ledgerURL: ledgerURL)
+        ledger.save()
 
         completion?(true)
     }
 
-
-
+    func cancelTask() {}
 }

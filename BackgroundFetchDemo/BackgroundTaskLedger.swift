@@ -5,7 +5,7 @@
 //  Created by Bob Wakefield on 10/28/20.
 //
 
-import Foundation
+import UIKit
 
 struct BackgroundTaskLedger {
 
@@ -24,27 +24,33 @@ struct BackgroundTaskLedger {
     struct LedgerEntry: Codable {
 
         let dateTime: Date
+        let message: String
     }
 
     var entries: [LedgerEntry]
 
-    init(ledgerURL: URL) {
+    init() {
 
-        let savedJSON = SavedJSON(url: ledgerURL)
+        let savedJSON = SavedJSON(url: Self.ledgerURL)
 
         let result: Result<[LedgerEntry], Error> = savedJSON.getObject()
         switch result {
         case .failure(let error):
             self.entries = []
             print("Error reading ledger entries: " + error.localizedDescription)
-        case .success(let ledgerEntries):
+        case .success(var ledgerEntries):
+            if (ledgerEntries.first?.dateTime ?? Date()) < (ledgerEntries.last?.dateTime ?? Date()) {
+
+                ledgerEntries.sort { $0.dateTime > $1.dateTime }
+            }
             self.entries = ledgerEntries
         }
+
     }
 
-    func save(ledgerURL: URL) {
+    func save() {
 
-        let savedJSON = SavedJSON(url: ledgerURL)
+        let savedJSON = SavedJSON(url: Self.ledgerURL)
 
         let result: Result<[LedgerEntry], Error> = savedJSON.saveObject(self.entries)
         switch result {
@@ -55,8 +61,8 @@ struct BackgroundTaskLedger {
         }
     }
 
-    mutating func addEntry() {
+    mutating func addEntry(message: String = "") {
 
-        entries.append(LedgerEntry(dateTime: Date()))
+        entries.insert(LedgerEntry(dateTime: Date(), message: message), at: 0)
     }
 }

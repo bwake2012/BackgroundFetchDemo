@@ -37,7 +37,7 @@ class ViewController: UIViewController {
 
         backgroundManager.performBackgroundFetch(bgTask: nil)
 
-        ledger = BackgroundTaskLedger(ledgerURL: ledgerURL)
+        ledger = BackgroundTaskLedger()
         tableView?.reloadData()
     }
 
@@ -46,15 +46,28 @@ class ViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        ledger = BackgroundTaskLedger(ledgerURL: ledgerURL)
+        registerForNotifications()
+        ledger = BackgroundTaskLedger()
     }
 
     override func viewDidAppear(_ animated: Bool) {
 
         super.viewDidAppear(animated)
 
-        ledger = BackgroundTaskLedger(ledgerURL: ledgerURL)
+        ledger = BackgroundTaskLedger()
         tableView?.reloadData()
+    }
+
+    func registerForNotifications() {
+
+        NotificationCenter.default.addObserver(forName: .newPokemonFetched, object: nil, queue: nil) { (notification) in
+
+            print("notification received")
+            if let uInfo = notification.userInfo, let _ = uInfo["pokemon"] as? Pokemon {
+                self.ledger = BackgroundTaskLedger()
+                self.tableView?.reloadData()
+            }
+        }
     }
 }
 
@@ -67,9 +80,16 @@ extension ViewController: UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
-        let cell = tableView.dequeueReusableCell(withIdentifier: "LedgerEntry", for: indexPath)
+        let cell = BackgroundFetchTableviewCell.dequeueReusableCell(from: tableView, for: indexPath)
 
-        cell.textLabel?.text = dateFormatter.string(from: ledger?.entries[indexPath.row].dateTime ?? Date())
+        if let entry = ledger?.entries[indexPath.row] {
+
+            cell.pokemonSpeciesName?.text = entry.message
+            cell.pokemonFetchDate?.text = dateFormatter.string(from: entry.dateTime)
+        } else {
+            cell.pokemonSpeciesName?.text = "Missing Entry"
+            cell.pokemonFetchDate?.text = nil
+        }
 
         return cell
     }

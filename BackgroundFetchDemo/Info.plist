@@ -5,6 +5,7 @@
 	<key>BGTaskSchedulerPermittedIdentifiers</key>
 	<array>
 		<string>net.cockleburr.BackgroundFetchDemo.backgroundFetch</string>
+		<string>net.cockleburr.BackgroundFetchDemo.pokemonFetch</string>
 	</array>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
