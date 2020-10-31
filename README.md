@@ -1,6 +1,6 @@
 # BackgroundFetchDemo
 
-This is a basic text program to demonstrate the new mode of background processing in iOS. 
+This is a basic test program to demonstrate the new mode of background processing in iOS. 
 
 It borrows heavily from the article by Myrick Chow: [Swift iOS BackgroundTasks framework — Background App Refresh in 4 Steps](https://itnext.io/swift-ios-13-backgroundtasks-framework-background-app-refresh-in-4-steps-3da32e65bc3d).
 
