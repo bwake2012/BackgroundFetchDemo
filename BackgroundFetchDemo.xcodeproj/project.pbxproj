@@ -44,6 +44,7 @@
 
 /* Begin PBXFileReference section */
 		C4B091762550A42500CCAAD4 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		C4B0917A2550B62700CCAAD4 /* simulatorScreenShot.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = simulatorScreenShot.png; sourceTree = "<group>"; };
 		C4CFFE94254A0ADB00B8D59A /* BackgroundFetchDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BackgroundFetchDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C4CFFE97254A0ADB00B8D59A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C4CFFE99254A0ADB00B8D59A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -97,6 +98,7 @@
 			isa = PBXGroup;
 			children = (
 				C4B091762550A42500CCAAD4 /* README.md */,
+				C4B0917A2550B62700CCAAD4 /* simulatorScreenShot.png */,
 				C4CFFE96254A0ADB00B8D59A /* BackgroundFetchDemo */,
 				C4CFFEAD254A0ADE00B8D59A /* BackgroundFetchDemoTests */,
 				C4CFFEB8254A0ADE00B8D59A /* BackgroundFetchDemoUITests */,
