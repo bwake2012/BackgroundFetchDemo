@@ -21,3 +21,5 @@ It saves the results of its fetches in an array, which it writes to a JSON file.
 I have not yet made this work. The BackgroundTasks framework looks simple enough, but there's something missing. It's interesting that Apple's (ColorFeed)[https://docs-assets.developer.apple.com/published/9decfbca71/RefreshingAndMaintainingYourAppUsingBackgroundTasks.zip] demo doesn't make any network calls. Andy Ibanez's sample doesn't appear to fetch Pokémon either.
 
 I did make old style background fetch work in my [TodayWidgetDemo](https://github.com/bwake2012/TodayWidgetDemo).
+
+![BackgroundFetchDemo screen shot](https://octodex.github.com/images/yaktocat.png)
