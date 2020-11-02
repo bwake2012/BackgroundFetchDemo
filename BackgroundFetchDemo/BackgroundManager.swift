@@ -21,7 +21,7 @@ protocol BackgroundManagerTaskProtocol {
     var nextDateTime: Date { get }
 
     // Function to perform the task
-    func performTask(completion: ((Bool) -> Void)?)
+    func performTask(isBackground: Bool, completion: ((Bool) -> Void)?)
 
     func cancelTask()
 }
@@ -47,7 +47,8 @@ class BackgroundManager {
 
     func sceneWillEnterForeground() {
 
-//        BGTaskScheduler.shared.cancelAllTaskRequests()
+        BGTaskScheduler.shared.cancelAllTaskRequests()
+        print("All scheduled background tasks cancelled!")
     }
 }
 
@@ -78,14 +79,12 @@ extension BackgroundManager {
 
         let dateFormatter = DateFormatter()
         dateFormatter.dateStyle = .short
-        dateFormatter.timeStyle = .short
+        dateFormatter.timeStyle = .long
 
         return dateFormatter
     }()
 
-    fileprivate func scheduleBackgroundFetch(on date: Date) {
-
-        let taskDate = max(date, Date(timeIntervalSinceNow: 5.0 * 60.0)) // Fetch no earlier than 5 minutes from now
+    fileprivate func scheduleBackgroundFetch(on taskDate: Date) {
 
         let request = BGAppRefreshTaskRequest(identifier: self.task.taskID)
         request.earliestBeginDate = taskDate
@@ -116,7 +115,7 @@ extension BackgroundManager {
         }
 
         print("Performing Background Task: \(self.task.taskID) at \(Self.dateFormatter.string(from: Date()))")
-        self.task.performTask { success in
+        self.task.performTask(isBackground: nil != bgTask) { success in
 
             guard let bgTask = bgTask else { return }
 

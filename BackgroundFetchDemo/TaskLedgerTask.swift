@@ -13,7 +13,7 @@ struct TaskLedgerTask: BackgroundManagerTaskProtocol {
     private let delayInterval: TimeInterval = 5 * 60
 
     // MARK:
-    var taskID: String { return "net.cockleburr.BackgroundFetchDemo.backgroundFetch" }
+    var taskID: String { return "net.cockleburr.BackgroundFetchDemo.taskLedgerTask" }
 
     var firstDateTime: Date {
 
@@ -25,9 +25,9 @@ struct TaskLedgerTask: BackgroundManagerTaskProtocol {
         return Date(timeIntervalSinceNow: delayInterval)
     }
 
-    func performTask(completion: ((Bool) -> Void)?) {
+    func performTask(isBackground: Bool, completion: ((Bool) -> Void)?) {
 
-        var ledger = BackgroundTaskLedger()
+        var ledger = BackgroundFetchLedger.shared
         ledger.addEntry()
         ledger.save()
 

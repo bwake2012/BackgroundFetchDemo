@@ -21,24 +21,12 @@ class ViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView?
 
-    let ledgerURL = BackgroundTaskLedger.ledgerURL
-    var ledger: BackgroundTaskLedger?
-
-    lazy var dateFormatter: DateFormatter = {
-
-        let formatter = DateFormatter()
-        formatter.dateStyle = .short
-        formatter.timeStyle = .short
-
-        return formatter
-    }()
+    let ledgerURL = BackgroundFetchLedger.ledgerURL
+    var ledger: BackgroundFetchLedger { return BackgroundFetchLedger.shared }
 
     @IBAction func fetchButtonTapped(_ sender: UIButton) {
 
         backgroundManager.performBackgroundFetch(bgTask: nil)
-
-        ledger = BackgroundTaskLedger()
-        tableView?.reloadData()
     }
 
     override func viewDidLoad() {
@@ -47,14 +35,12 @@ class ViewController: UIViewController {
 
         // Do any additional setup after loading the view.
         registerForNotifications()
-        ledger = BackgroundTaskLedger()
     }
 
     override func viewDidAppear(_ animated: Bool) {
 
         super.viewDidAppear(animated)
 
-        ledger = BackgroundTaskLedger()
         tableView?.reloadData()
     }
 
@@ -64,8 +50,7 @@ class ViewController: UIViewController {
 
             print("notification received")
             if let uInfo = notification.userInfo, let _ = uInfo["pokemon"] as? Pokemon {
-                self.ledger = BackgroundTaskLedger()
-                self.tableView?.reloadData()
+                 self.tableView?.reloadData()
             }
         }
     }
@@ -75,21 +60,16 @@ extension ViewController: UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 
-        return ledger?.entries.count ?? 0
+        let count = ledger.entries.count
+        print("Ledger entries: \(count)")
+        return count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
         let cell = BackgroundFetchTableviewCell.dequeueReusableCell(from: tableView, for: indexPath)
 
-        if let entry = ledger?.entries[indexPath.row] {
-
-            cell.pokemonSpeciesName?.text = entry.message
-            cell.pokemonFetchDate?.text = dateFormatter.string(from: entry.dateTime)
-        } else {
-            cell.pokemonSpeciesName?.text = "Missing Entry"
-            cell.pokemonFetchDate?.text = nil
-        }
+        cell.configure(with: ledger.entries[indexPath.row])
 
         return cell
     }

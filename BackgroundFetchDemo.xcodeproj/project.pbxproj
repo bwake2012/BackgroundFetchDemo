@@ -16,10 +16,9 @@
 		C4CFFEAF254A0ADE00B8D59A /* BackgroundFetchDemoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4CFFEAE254A0ADE00B8D59A /* BackgroundFetchDemoTests.swift */; };
 		C4CFFEBA254A0ADE00B8D59A /* BackgroundFetchDemoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4CFFEB9254A0ADE00B8D59A /* BackgroundFetchDemoUITests.swift */; };
 		C4CFFECB254A0AEE00B8D59A /* BackgroundManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4CFFECA254A0AEE00B8D59A /* BackgroundManager.swift */; };
-		C4CFFED0254A0CAC00B8D59A /* BackgroundTaskLedger.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4CFFECF254A0CAC00B8D59A /* BackgroundTaskLedger.swift */; };
+		C4CFFED0254A0CAC00B8D59A /* BackgroundFetchLedger.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4CFFECF254A0CAC00B8D59A /* BackgroundFetchLedger.swift */; };
 		C4CFFED6254A10EC00B8D59A /* SavedJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4CFFED4254A10EC00B8D59A /* SavedJSON.swift */; };
 		C4CFFED7254A10EC00B8D59A /* SavedData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4CFFED5254A10EC00B8D59A /* SavedData.swift */; };
-		C4CFFEE8254B1A5D00B8D59A /* TaskLedgerTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4CFFEE7254B1A5D00B8D59A /* TaskLedgerTask.swift */; };
 		C4CFFF4B254BBAFF00B8D59A /* PokemonFetchTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4CFFF4A254BBAFF00B8D59A /* PokemonFetchTask.swift */; };
 		C4CFFF51254BBC1500B8D59A /* PokeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4CFFF4F254BBC1500B8D59A /* PokeManager.swift */; };
 		C4CFFF52254BBC1500B8D59A /* Pokemon.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4CFFF50254BBC1500B8D59A /* Pokemon.swift */; };
@@ -59,10 +58,9 @@
 		C4CFFEB9254A0ADE00B8D59A /* BackgroundFetchDemoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundFetchDemoUITests.swift; sourceTree = "<group>"; };
 		C4CFFEBB254A0ADE00B8D59A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C4CFFECA254A0AEE00B8D59A /* BackgroundManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BackgroundManager.swift; sourceTree = "<group>"; };
-		C4CFFECF254A0CAC00B8D59A /* BackgroundTaskLedger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundTaskLedger.swift; sourceTree = "<group>"; };
+		C4CFFECF254A0CAC00B8D59A /* BackgroundFetchLedger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundFetchLedger.swift; sourceTree = "<group>"; };
 		C4CFFED4254A10EC00B8D59A /* SavedJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SavedJSON.swift; sourceTree = "<group>"; };
 		C4CFFED5254A10EC00B8D59A /* SavedData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SavedData.swift; sourceTree = "<group>"; };
-		C4CFFEE7254B1A5D00B8D59A /* TaskLedgerTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskLedgerTask.swift; sourceTree = "<group>"; };
 		C4CFFF4A254BBAFF00B8D59A /* PokemonFetchTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonFetchTask.swift; sourceTree = "<group>"; };
 		C4CFFF4F254BBC1500B8D59A /* PokeManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PokeManager.swift; sourceTree = "<group>"; };
 		C4CFFF50254BBC1500B8D59A /* Pokemon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Pokemon.swift; sourceTree = "<group>"; };
@@ -122,9 +120,8 @@
 				C4CFFE97254A0ADB00B8D59A /* AppDelegate.swift */,
 				C4CFFE99254A0ADB00B8D59A /* SceneDelegate.swift */,
 				C4CFFECA254A0AEE00B8D59A /* BackgroundManager.swift */,
-				C4CFFEE7254B1A5D00B8D59A /* TaskLedgerTask.swift */,
 				C4CFFF4A254BBAFF00B8D59A /* PokemonFetchTask.swift */,
-				C4CFFECF254A0CAC00B8D59A /* BackgroundTaskLedger.swift */,
+				C4CFFECF254A0CAC00B8D59A /* BackgroundFetchLedger.swift */,
 				C4CFFED5254A10EC00B8D59A /* SavedData.swift */,
 				C4CFFED4254A10EC00B8D59A /* SavedJSON.swift */,
 				C4CFFE9B254A0ADB00B8D59A /* ViewController.swift */,
@@ -285,8 +282,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C4CFFEE8254B1A5D00B8D59A /* TaskLedgerTask.swift in Sources */,
-				C4CFFED0254A0CAC00B8D59A /* BackgroundTaskLedger.swift in Sources */,
+				C4CFFED0254A0CAC00B8D59A /* BackgroundFetchLedger.swift in Sources */,
 				C4CFFED7254A10EC00B8D59A /* SavedData.swift in Sources */,
 				C4CFFE9C254A0ADB00B8D59A /* ViewController.swift in Sources */,
 				C4CFFED6254A10EC00B8D59A /* SavedJSON.swift in Sources */,
