@@ -1,6 +1,6 @@
 # BackgroundFetchDemo
 
-This is a basic test program to demonstrate the new mode of background processing in iOS. 
+This is a basic test program to demonstrate the new `BackgroundTasks` framework in iOS. 
 
 I read a number of articles about the new framework:
 
@@ -18,7 +18,7 @@ I have tried to separate management of the background task(s) from both AppDeleg
 
 It saves the results of its fetches in an array, which it writes to a JSON file. It displays the array of results in a UITableView. It includes a way to manually fetch a random Pokémon. It includes pull-to-refresh to update the display, just in case.
 
-I have not yet made this work. The BackgroundTasks framework looks simple enough, but there's something missing. It's interesting that Apple's (ColorFeed)[https://docs-assets.developer.apple.com/published/9decfbca71/RefreshingAndMaintainingYourAppUsingBackgroundTasks.zip] demo doesn't make any network calls. Andy Ibanez's sample doesn't appear to fetch Pokémon either.
+I have not yet made this work. The BackgroundTasks framework looks simple enough, but there's something missing. It's interesting that Apple's (ColorFeed) demo doesn't make any network calls. Andy Ibanez's sample doesn't appear to fetch Pokémon either.
 
 I did make old style background fetch work in my [TodayWidgetDemo](https://github.com/bwake2012/TodayWidgetDemo).
 
