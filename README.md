@@ -22,4 +22,4 @@ I have not yet made this work. The BackgroundTasks framework looks simple enough
 
 I did make old style background fetch work in my [TodayWidgetDemo](https://github.com/bwake2012/TodayWidgetDemo).
 
-![BackgroundFetchDemo screen shot](https://octodex.github.com/images/yaktocat.png)
+![BackgroundFetchDemo screen shot](https://github.com/bwake2012/BackgroundFetchDemo/blob/main/simulatorScreenShot.png)
