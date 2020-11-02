@@ -20,6 +20,7 @@ class ViewController: UIViewController {
     }
 
     @IBOutlet weak var tableView: UITableView?
+    @IBOutlet weak var refreshControl: UIRefreshControl?
 
     let ledgerURL = BackgroundFetchLedger.ledgerURL
     var ledger: BackgroundFetchLedger { return BackgroundFetchLedger.shared }
@@ -34,6 +35,12 @@ class ViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        let refreshControl = UIRefreshControl()
+        refreshControl.attributedTitle = NSAttributedString(string: "Pull to Refresh")
+        refreshControl.addTarget(self, action: "refresh:", for: .valueChanged)
+        tableView?.addSubview(refreshControl)
+        self.refreshControl = refreshControl
+
         registerForNotifications()
     }
 
@@ -72,5 +79,12 @@ extension ViewController: UITableViewDataSource {
         cell.configure(with: ledger.entries[indexPath.row])
 
         return cell
+    }
+
+    @objc func refresh(sender: UIRefreshControl) {
+
+        tableView?.reloadData()
+        
+        refreshControl?.endRefreshing()
     }
 }
