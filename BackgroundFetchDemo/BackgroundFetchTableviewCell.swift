@@ -7,29 +7,6 @@
 
 import UIKit
 
-extension NSObject {
-
-    var className: String {
-        return String(describing: type(of: self))
-    }
-
-    class var className: String {
-        return String(describing: self)
-    }
-}
-
-extension UITableViewCell {
-
-    static func dequeueReusableCell(from tableView: UITableView, for indexPath: IndexPath) -> Self {
-
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: self.className, for: indexPath) as? Self else {
-            preconditionFailure("Unable to dequeue cell of type \(className) from tableView.")
-        }
-
-        return cell
-    }
-}
-
 class BackgroundFetchTableviewCell: UITableViewCell {
 
     static var dateFormatter: DateFormatter = {

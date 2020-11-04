@@ -9,6 +9,8 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    @IBOutlet weak var versionLabel: UILabel!
+
     var backgroundManager: BackgroundManager {
 
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
@@ -40,6 +42,8 @@ class ViewController: UIViewController {
         refreshControl.addTarget(self, action: #selector(refresh), for: .valueChanged)
         tableView?.addSubview(refreshControl)
         self.refreshControl = refreshControl
+
+        versionLabel.text = Bundle.appVersion
 
         registerForNotifications()
     }

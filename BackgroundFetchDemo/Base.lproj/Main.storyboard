@@ -17,8 +17,20 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="1000" text="Background Fetch Demo" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EPj-jf-Syf">
+                                <rect key="frame" x="20" y="44" width="374" height="41"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="version" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CH4-WB-gBa">
+                                <rect key="frame" x="20" y="93" width="374" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="YQr-ei-OSu">
-                                <rect key="frame" x="0.0" y="44" width="414" height="757"/>
+                                <rect key="frame" x="0.0" y="121.5" width="414" height="679.5"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="BackgroundFetchTableviewCell" rowHeight="97" id="GHM-99-aVC" customClass="BackgroundFetchTableviewCell" customModule="BackgroundFetchDemo" customModuleProvider="target">
@@ -109,15 +121,22 @@
                         <constraints>
                             <constraint firstItem="YQr-ei-OSu" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="8PY-OD-S6h"/>
                             <constraint firstItem="YQr-ei-OSu" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="8SK-mu-67D"/>
+                            <constraint firstItem="CH4-WB-gBa" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="96q-Ma-7rq"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="CH4-WB-gBa" secondAttribute="trailing" id="N9E-We-F4e"/>
+                            <constraint firstItem="CH4-WB-gBa" firstAttribute="top" secondItem="EPj-jf-Syf" secondAttribute="bottom" constant="8" symbolic="YES" id="PCw-vN-YHB"/>
                             <constraint firstAttribute="trailingMargin" secondItem="2lp-wJ-REj" secondAttribute="trailing" id="aGS-q9-ofN"/>
                             <constraint firstItem="2lp-wJ-REj" firstAttribute="top" secondItem="YQr-ei-OSu" secondAttribute="bottom" constant="8" id="aZC-aq-qRu"/>
                             <constraint firstItem="2lp-wJ-REj" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="dwJ-8n-yx2"/>
+                            <constraint firstItem="EPj-jf-Syf" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="hlR-fy-hr6"/>
                             <constraint firstItem="2lp-wJ-REj" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="iLe-Lb-wLG"/>
-                            <constraint firstItem="YQr-ei-OSu" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="rAk-lH-n8F"/>
+                            <constraint firstItem="EPj-jf-Syf" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="ohj-xL-ACO"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="EPj-jf-Syf" secondAttribute="trailing" id="rcx-Wb-2TB"/>
+                            <constraint firstItem="YQr-ei-OSu" firstAttribute="top" secondItem="CH4-WB-gBa" secondAttribute="bottom" constant="8" symbolic="YES" id="tYb-jO-tFR"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="tableView" destination="YQr-ei-OSu" id="OPt-fX-kbN"/>
+                        <outlet property="versionLabel" destination="CH4-WB-gBa" id="qnf-cK-mWN"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
