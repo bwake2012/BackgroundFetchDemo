@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C4B091B02553576700CCAAD4 /* NSBundle+AppVersion.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4B091AF2553576700CCAAD4 /* NSBundle+AppVersion.swift */; };
+		C4B091B6255357A000CCAAD4 /* NSObject+className.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4B091B5255357A000CCAAD4 /* NSObject+className.swift */; };
+		C4B091BE2553582700CCAAD4 /* UITableViewCell+dequeueReusableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4B091BD2553582700CCAAD4 /* UITableViewCell+dequeueReusableCell.swift */; };
 		C4CFFE98254A0ADB00B8D59A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4CFFE97254A0ADB00B8D59A /* AppDelegate.swift */; };
 		C4CFFE9A254A0ADB00B8D59A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4CFFE99254A0ADB00B8D59A /* SceneDelegate.swift */; };
 		C4CFFE9C254A0ADB00B8D59A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4CFFE9B254A0ADB00B8D59A /* ViewController.swift */; };
@@ -45,6 +48,9 @@
 /* Begin PBXFileReference section */
 		C4B091762550A42500CCAAD4 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		C4B0917A2550B62700CCAAD4 /* simulatorScreenShot.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = simulatorScreenShot.png; sourceTree = "<group>"; };
+		C4B091AF2553576700CCAAD4 /* NSBundle+AppVersion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSBundle+AppVersion.swift"; sourceTree = "<group>"; };
+		C4B091B5255357A000CCAAD4 /* NSObject+className.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSObject+className.swift"; sourceTree = "<group>"; };
+		C4B091BD2553582700CCAAD4 /* UITableViewCell+dequeueReusableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableViewCell+dequeueReusableCell.swift"; sourceTree = "<group>"; };
 		C4CFFE94254A0ADB00B8D59A /* BackgroundFetchDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BackgroundFetchDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C4CFFE97254A0ADB00B8D59A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C4CFFE99254A0ADB00B8D59A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -94,6 +100,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C4B091B42553577400CCAAD4 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				C4B091AF2553576700CCAAD4 /* NSBundle+AppVersion.swift */,
+				C4B091B5255357A000CCAAD4 /* NSObject+className.swift */,
+				C4B091BD2553582700CCAAD4 /* UITableViewCell+dequeueReusableCell.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		C4CFFE8B254A0ADB00B8D59A = {
 			isa = PBXGroup;
 			children = (
@@ -119,6 +135,7 @@
 		C4CFFE96254A0ADB00B8D59A /* BackgroundFetchDemo */ = {
 			isa = PBXGroup;
 			children = (
+				C4B091B42553577400CCAAD4 /* Extensions */,
 				C4CFFF4F254BBC1500B8D59A /* PokeManager.swift */,
 				C4CFFF50254BBC1500B8D59A /* Pokemon.swift */,
 				C4CFFE97254A0ADB00B8D59A /* AppDelegate.swift */,
@@ -166,6 +183,7 @@
 				C4CFFE90254A0ADB00B8D59A /* Sources */,
 				C4CFFE91254A0ADB00B8D59A /* Frameworks */,
 				C4CFFE92254A0ADB00B8D59A /* Resources */,
+				C4B091AE2553561A00CCAAD4 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -281,19 +299,42 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		C4B091AE2553561A00CCAAD4 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "#\n# Set the build number to the current git commit count.\n# If we're using the Dev scheme, then we'll suffix the build\n# number with the current branch name, to make collisions\n# far less likely across feature branches.\n# Based on: http://w3facility.info/question/how-do-i-force-xcode-to-rebuild-the-info-plist-file-in-my-project-every-time-i-build-the-project/\n#\n# Updated with dSYM handling from http://yellowfeather.co.uk/blog/auto-incrementing-build-number-in-xcode-revisited/\n#\n\ngit=`sh /etc/profile; which git`\nappBuild=`\"$git\" rev-list HEAD --count`\nif [ $CONFIGURATION = \"Debug\" ]; then\nbranchName=`\"$git\" rev-parse --abbrev-ref HEAD`\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $appBuild-$branchName\" \"${TARGET_BUILD_DIR}/${INFOPLIST_PATH}\"\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $appBuild-$branchName\" \"${BUILT_PRODUCTS_DIR}/${WRAPPER_NAME}.dSYM/Contents/Info.plist\"\nelse\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $appBuild\" \"${TARGET_BUILD_DIR}/${INFOPLIST_PATH}\"\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $appBuild\" \"${BUILT_PRODUCTS_DIR}/${WRAPPER_NAME}.dSYM/Contents/Info.plist\"\nfi\necho \"Incremented the build number ${TARGET_BUILD_DIR}/${INFOPLIST_PATH}\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		C4CFFE90254A0ADB00B8D59A /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				C4CFFED0254A0CAC00B8D59A /* BackgroundFetchLedger.swift in Sources */,
+				C4B091B02553576700CCAAD4 /* NSBundle+AppVersion.swift in Sources */,
 				C4CFFED7254A10EC00B8D59A /* SavedData.swift in Sources */,
+				C4B091BE2553582700CCAAD4 /* UITableViewCell+dequeueReusableCell.swift in Sources */,
 				C4CFFE9C254A0ADB00B8D59A /* ViewController.swift in Sources */,
 				C4CFFED6254A10EC00B8D59A /* SavedJSON.swift in Sources */,
 				C4CFFECB254A0AEE00B8D59A /* BackgroundManager.swift in Sources */,
 				C4CFFF5A254C762400B8D59A /* BackgroundFetchTableviewCell.swift in Sources */,
 				C4CFFF52254BBC1500B8D59A /* Pokemon.swift in Sources */,
 				C4CFFF51254BBC1500B8D59A /* PokeManager.swift in Sources */,
+				C4B091B6255357A000CCAAD4 /* NSObject+className.swift in Sources */,
 				C4CFFE98254A0ADB00B8D59A /* AppDelegate.swift in Sources */,
 				C4CFFF4B254BBAFF00B8D59A /* PokemonFetchTask.swift in Sources */,
 				C4CFFE9A254A0ADB00B8D59A /* SceneDelegate.swift in Sources */,
