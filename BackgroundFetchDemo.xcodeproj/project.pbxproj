@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C4B091842551121900CCAAD4 /* ImageDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4B091822551121900CCAAD4 /* ImageDownloader.swift */; };
+		C4B091852551121900CCAAD4 /* CodableObjectDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4B091832551121900CCAAD4 /* CodableObjectDownloader.swift */; };
+		C4B0918C2551123C00CCAAD4 /* BackgroundRetriever.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4B0918A2551123C00CCAAD4 /* BackgroundRetriever.swift */; };
+		C4B0918D2551123C00CCAAD4 /* Retriever.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4B0918B2551123C00CCAAD4 /* Retriever.swift */; };
+		C4B091962551170B00CCAAD4 /* TypeAliases.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4B091952551170B00CCAAD4 /* TypeAliases.swift */; };
+		C4B0919B255117EA00CCAAD4 /* AppErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4B0919A255117EA00CCAAD4 /* AppErrors.swift */; };
 		C4CFFE98254A0ADB00B8D59A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4CFFE97254A0ADB00B8D59A /* AppDelegate.swift */; };
 		C4CFFE9A254A0ADB00B8D59A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4CFFE99254A0ADB00B8D59A /* SceneDelegate.swift */; };
 		C4CFFE9C254A0ADB00B8D59A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4CFFE9B254A0ADB00B8D59A /* ViewController.swift */; };
@@ -45,6 +51,12 @@
 /* Begin PBXFileReference section */
 		C4B091762550A42500CCAAD4 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		C4B0917A2550B62700CCAAD4 /* simulatorScreenShot.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = simulatorScreenShot.png; sourceTree = "<group>"; };
+		C4B091822551121900CCAAD4 /* ImageDownloader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageDownloader.swift; sourceTree = "<group>"; };
+		C4B091832551121900CCAAD4 /* CodableObjectDownloader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CodableObjectDownloader.swift; sourceTree = "<group>"; };
+		C4B0918A2551123C00CCAAD4 /* BackgroundRetriever.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BackgroundRetriever.swift; sourceTree = "<group>"; };
+		C4B0918B2551123C00CCAAD4 /* Retriever.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Retriever.swift; sourceTree = "<group>"; };
+		C4B091952551170B00CCAAD4 /* TypeAliases.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TypeAliases.swift; sourceTree = "<group>"; };
+		C4B0919A255117EA00CCAAD4 /* AppErrors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppErrors.swift; sourceTree = "<group>"; };
 		C4CFFE94254A0ADB00B8D59A /* BackgroundFetchDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BackgroundFetchDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C4CFFE97254A0ADB00B8D59A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C4CFFE99254A0ADB00B8D59A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -94,6 +106,33 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C4B091812551121900CCAAD4 /* Downloaders */ = {
+			isa = PBXGroup;
+			children = (
+				C4B091822551121900CCAAD4 /* ImageDownloader.swift */,
+				C4B091832551121900CCAAD4 /* CodableObjectDownloader.swift */,
+			);
+			path = Downloaders;
+			sourceTree = "<group>";
+		};
+		C4B091892551123C00CCAAD4 /* Retriever */ = {
+			isa = PBXGroup;
+			children = (
+				C4B0918A2551123C00CCAAD4 /* BackgroundRetriever.swift */,
+				C4B0918B2551123C00CCAAD4 /* Retriever.swift */,
+			);
+			path = Retriever;
+			sourceTree = "<group>";
+		};
+		C4B091912551124900CCAAD4 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				C4CFFF4F254BBC1500B8D59A /* PokeManager.swift */,
+				C4CFFF50254BBC1500B8D59A /* Pokemon.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		C4CFFE8B254A0ADB00B8D59A = {
 			isa = PBXGroup;
 			children = (
@@ -119,8 +158,11 @@
 		C4CFFE96254A0ADB00B8D59A /* BackgroundFetchDemo */ = {
 			isa = PBXGroup;
 			children = (
-				C4CFFF4F254BBC1500B8D59A /* PokeManager.swift */,
-				C4CFFF50254BBC1500B8D59A /* Pokemon.swift */,
+				C4B091812551121900CCAAD4 /* Downloaders */,
+				C4B091912551124900CCAAD4 /* Model */,
+				C4B091892551123C00CCAAD4 /* Retriever */,
+				C4B0919A255117EA00CCAAD4 /* AppErrors.swift */,
+				C4B091952551170B00CCAAD4 /* TypeAliases.swift */,
 				C4CFFE97254A0ADB00B8D59A /* AppDelegate.swift */,
 				C4CFFE99254A0ADB00B8D59A /* SceneDelegate.swift */,
 				C4CFFECA254A0AEE00B8D59A /* BackgroundManager.swift */,
@@ -286,16 +328,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C4B091962551170B00CCAAD4 /* TypeAliases.swift in Sources */,
 				C4CFFED0254A0CAC00B8D59A /* BackgroundFetchLedger.swift in Sources */,
 				C4CFFED7254A10EC00B8D59A /* SavedData.swift in Sources */,
 				C4CFFE9C254A0ADB00B8D59A /* ViewController.swift in Sources */,
 				C4CFFED6254A10EC00B8D59A /* SavedJSON.swift in Sources */,
 				C4CFFECB254A0AEE00B8D59A /* BackgroundManager.swift in Sources */,
+				C4B0918D2551123C00CCAAD4 /* Retriever.swift in Sources */,
 				C4CFFF5A254C762400B8D59A /* BackgroundFetchTableviewCell.swift in Sources */,
 				C4CFFF52254BBC1500B8D59A /* Pokemon.swift in Sources */,
 				C4CFFF51254BBC1500B8D59A /* PokeManager.swift in Sources */,
+				C4B0919B255117EA00CCAAD4 /* AppErrors.swift in Sources */,
+				C4B0918C2551123C00CCAAD4 /* BackgroundRetriever.swift in Sources */,
 				C4CFFE98254A0ADB00B8D59A /* AppDelegate.swift in Sources */,
+				C4B091852551121900CCAAD4 /* CodableObjectDownloader.swift in Sources */,
 				C4CFFF4B254BBAFF00B8D59A /* PokemonFetchTask.swift in Sources */,
+				C4B091842551121900CCAAD4 /* ImageDownloader.swift in Sources */,
 				C4CFFE9A254A0ADB00B8D59A /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

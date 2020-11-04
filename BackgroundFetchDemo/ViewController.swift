@@ -37,7 +37,7 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view.
         let refreshControl = UIRefreshControl()
         refreshControl.attributedTitle = NSAttributedString(string: "Pull to Refresh")
-        refreshControl.addTarget(self, action: "refresh:", for: .valueChanged)
+        refreshControl.addTarget(self, action: #selector(refresh), for: .valueChanged)
         tableView?.addSubview(refreshControl)
         self.refreshControl = refreshControl
 
@@ -57,7 +57,10 @@ class ViewController: UIViewController {
 
             print("notification received")
             if let uInfo = notification.userInfo, let _ = uInfo["pokemon"] as? Pokemon {
-                 self.tableView?.reloadData()
+                DispatchQueue.main.async {
+
+                    self.tableView?.reloadData()
+                }
             }
         }
     }
