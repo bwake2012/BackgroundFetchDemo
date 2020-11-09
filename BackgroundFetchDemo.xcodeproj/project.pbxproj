@@ -20,7 +20,7 @@
 		C4B091FE2554A97900CCAAD4 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4B091FD2554A97900CCAAD4 /* SwiftUI.framework */; };
 		C4B092012554A97900CCAAD4 /* BackgroundFetchDemoTodayWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4B092002554A97900CCAAD4 /* BackgroundFetchDemoTodayWidget.swift */; };
 		C4B092032554A97B00CCAAD4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C4B092022554A97B00CCAAD4 /* Assets.xcassets */; };
-		C4B092072554A97B00CCAAD4 /* Background Fetch Demo Today WidgetExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = C4B091F92554A97900CCAAD4 /* Background Fetch Demo Today WidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		C4B092072554A97B00CCAAD4 /* TodayWidgetExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = C4B091F92554A97900CCAAD4 /* TodayWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		C4B092102554AAD400CCAAD4 /* SharedData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4B091E52554A52400CCAAD4 /* SharedData.swift */; };
 		C4B092112554AAD400CCAAD4 /* SharedJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4B091E42554A52400CCAAD4 /* SharedJSON.swift */; };
 		C4B092122554AAD400CCAAD4 /* CommonConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4B091E62554A52400CCAAD4 /* CommonConstants.swift */; };
@@ -82,7 +82,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
-				C4B092072554A97B00CCAAD4 /* Background Fetch Demo Today WidgetExtension.appex in Embed App Extensions */,
+				C4B092072554A97B00CCAAD4 /* TodayWidgetExtension.appex in Embed App Extensions */,
 			);
 			name = "Embed App Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -102,7 +102,7 @@
 		C4B091E62554A52400CCAAD4 /* CommonConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonConstants.swift; sourceTree = "<group>"; };
 		C4B091E72554A52400CCAAD4 /* SharedArchive.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedArchive.swift; sourceTree = "<group>"; };
 		C4B091F12554A88000CCAAD4 /* BackgroundFetchDemo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = BackgroundFetchDemo.entitlements; sourceTree = "<group>"; };
-		C4B091F92554A97900CCAAD4 /* Background Fetch Demo Today WidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Background Fetch Demo Today WidgetExtension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C4B091F92554A97900CCAAD4 /* TodayWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = TodayWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		C4B091FB2554A97900CCAAD4 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
 		C4B091FD2554A97900CCAAD4 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
 		C4B092002554A97900CCAAD4 /* BackgroundFetchDemoTodayWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundFetchDemoTodayWidget.swift; sourceTree = "<group>"; };
@@ -111,7 +111,7 @@
 		C4B092222554B29800CCAAD4 /* PokemonFetchEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonFetchEntry.swift; sourceTree = "<group>"; };
 		C4B0922E2555CF4B00CCAAD4 /* UIImage+transparent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+transparent.swift"; sourceTree = "<group>"; };
 		C4B092352555D28A00CCAAD4 /* CGImage+colorAt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGImage+colorAt.swift"; sourceTree = "<group>"; };
-		C4B0923C2555D8E600CCAAD4 /* Background Fetch Demo Today WidgetExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Background Fetch Demo Today WidgetExtension.entitlements"; sourceTree = "<group>"; };
+		C4B0923C2555D8E600CCAAD4 /* TodayWidgetExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TodayWidgetExtension.entitlements; sourceTree = "<group>"; };
 		C4CFFE94254A0ADB00B8D59A /* BackgroundFetchDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BackgroundFetchDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C4CFFE97254A0ADB00B8D59A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C4CFFE99254A0ADB00B8D59A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -218,7 +218,7 @@
 		C4CFFE8B254A0ADB00B8D59A = {
 			isa = PBXGroup;
 			children = (
-				C4B0923C2555D8E600CCAAD4 /* Background Fetch Demo Today WidgetExtension.entitlements */,
+				C4B0923C2555D8E600CCAAD4 /* TodayWidgetExtension.entitlements */,
 				C4B091762550A42500CCAAD4 /* README.md */,
 				C4B091E02554A47E00CCAAD4 /* Screenshot 2020-11-05 at 3.19.09 PM.jpg */,
 				C4B091E12554A52400CCAAD4 /* Common */,
@@ -237,7 +237,7 @@
 				C4CFFE94254A0ADB00B8D59A /* BackgroundFetchDemo.app */,
 				C4CFFEAA254A0ADE00B8D59A /* BackgroundFetchDemoTests.xctest */,
 				C4CFFEB5254A0ADE00B8D59A /* BackgroundFetchDemoUITests.xctest */,
-				C4B091F92554A97900CCAAD4 /* Background Fetch Demo Today WidgetExtension.appex */,
+				C4B091F92554A97900CCAAD4 /* TodayWidgetExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -287,9 +287,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		C4B091F82554A97900CCAAD4 /* Background Fetch Demo Today WidgetExtension */ = {
+		C4B091F82554A97900CCAAD4 /* TodayWidgetExtension */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = C4B092082554A97B00CCAAD4 /* Build configuration list for PBXNativeTarget "Background Fetch Demo Today WidgetExtension" */;
+			buildConfigurationList = C4B092082554A97B00CCAAD4 /* Build configuration list for PBXNativeTarget "TodayWidgetExtension" */;
 			buildPhases = (
 				C4B091F52554A97900CCAAD4 /* Sources */,
 				C4B091F62554A97900CCAAD4 /* Frameworks */,
@@ -300,9 +300,9 @@
 			);
 			dependencies = (
 			);
-			name = "Background Fetch Demo Today WidgetExtension";
+			name = TodayWidgetExtension;
 			productName = "Background Fetch Demo Today WidgetExtension";
-			productReference = C4B091F92554A97900CCAAD4 /* Background Fetch Demo Today WidgetExtension.appex */;
+			productReference = C4B091F92554A97900CCAAD4 /* TodayWidgetExtension.appex */;
 			productType = "com.apple.product-type.app-extension";
 		};
 		C4CFFE93254A0ADB00B8D59A /* BackgroundFetchDemo */ = {
@@ -402,7 +402,7 @@
 				C4CFFE93254A0ADB00B8D59A /* BackgroundFetchDemo */,
 				C4CFFEA9254A0ADE00B8D59A /* BackgroundFetchDemoTests */,
 				C4CFFEB4254A0ADE00B8D59A /* BackgroundFetchDemoUITests */,
-				C4B091F82554A97900CCAAD4 /* Background Fetch Demo Today WidgetExtension */,
+				C4B091F82554A97900CCAAD4 /* TodayWidgetExtension */,
 			);
 		};
 /* End PBXProject section */
@@ -548,7 +548,7 @@
 /* Begin PBXTargetDependency section */
 		C4B092062554A97B00CCAAD4 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = C4B091F82554A97900CCAAD4 /* Background Fetch Demo Today WidgetExtension */;
+			target = C4B091F82554A97900CCAAD4 /* TodayWidgetExtension */;
 			targetProxy = C4B092052554A97B00CCAAD4 /* PBXContainerItemProxy */;
 		};
 		C4CFFEAC254A0ADE00B8D59A /* PBXTargetDependency */ = {
@@ -588,7 +588,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
-				CODE_SIGN_ENTITLEMENTS = "Background Fetch Demo Today WidgetExtension.entitlements";
+				CODE_SIGN_ENTITLEMENTS = TodayWidgetExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 8G7W6WCEM9;
 				INFOPLIST_FILE = "Background Fetch Demo Today Widget/Info.plist";
@@ -598,7 +598,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = net.cockleburr.BackgroundFetchDemo.BackgroundFetchDemoTodayWidget;
+				PRODUCT_BUNDLE_IDENTIFIER = net.cockleburr.BackgroundFetchDemo.TodayWidget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
@@ -611,7 +611,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
-				CODE_SIGN_ENTITLEMENTS = "Background Fetch Demo Today WidgetExtension.entitlements";
+				CODE_SIGN_ENTITLEMENTS = TodayWidgetExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 8G7W6WCEM9;
 				INFOPLIST_FILE = "Background Fetch Demo Today Widget/Info.plist";
@@ -621,7 +621,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = net.cockleburr.BackgroundFetchDemo.BackgroundFetchDemoTodayWidget;
+				PRODUCT_BUNDLE_IDENTIFIER = net.cockleburr.BackgroundFetchDemo.TodayWidget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
@@ -874,7 +874,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		C4B092082554A97B00CCAAD4 /* Build configuration list for PBXNativeTarget "Background Fetch Demo Today WidgetExtension" */ = {
+		C4B092082554A97B00CCAAD4 /* Build configuration list for PBXNativeTarget "TodayWidgetExtension" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				C4B092092554A97B00CCAAD4 /* Debug */,
