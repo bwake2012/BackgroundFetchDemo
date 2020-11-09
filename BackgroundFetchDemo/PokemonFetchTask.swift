@@ -5,7 +5,7 @@
 //  Created by Bob Wakefield on 10/29/20.
 //
 
-import Foundation
+import UIKit
 
 extension Notification.Name {
     static let newPokemonFetched = Notification.Name("net.cockleburr.BackgroundFetchDemo.randomPokemonFetched")
@@ -15,17 +15,17 @@ struct PokemonFetchTask: BackgroundManagerTaskProtocol {
 
     var taskID: String { return "net.cockleburr.BackgroundFetchDemo.pokemonFetchTask" }
 
-    private let firstDelayInterval: TimeInterval = 30   // 30 seconds
-    private let delayInterval: TimeInterval = 60 * 60   // one hour
+    private let firstDelaySeconds = 30   // 30 seconds
+    private let delayIntervalHours = 1   // one hour
 
     var firstDateTime: Date {
 
-        return Date(timeIntervalSinceNow: firstDelayInterval)
+        return Calendar.current.date(byAdding: .second, value: firstDelaySeconds, to: Date())!
     }
 
     var nextDateTime: Date {
 
-        return Date(timeIntervalSinceNow: delayInterval)
+        return Calendar.current.date(byAdding: .hour, value: delayIntervalHours, to: Date())!
     }
 
     func performTask(isBackground: Bool = false, completion: ((Bool) -> Void)?) {
@@ -41,19 +41,21 @@ struct PokemonFetchTask: BackgroundManagerTaskProtocol {
 
             PokeManager.downloadImage(url: frontDefault) { image in
 
+                let maskedImage = image.transparent(samplePoint: CGPoint(x: 1, y: 1))
+
                 let pokemonLedger = BackgroundFetchLedger.shared
                 let ledgerEntry =
-                    BackgroundFetchLedger.PokemonFetchEntry(
+                    PokemonFetchEntry(
                             dateTime: Date(),
                             isBackground: isBackground,
-                            name: pokemon.species.name,
+                            name: pokemon.species.name.capitalized,
                             pokemonID: randomPoke
                         )
                 pokemonLedger.addEntry(ledgerEntry)
                 pokemonLedger.save()
 
                 let spriteURL = ledgerEntry.spriteURL
-                let imageData = image.jpegData(compressionQuality: 1.0)
+                let imageData = maskedImage.pngData()
 
                 do {
                     try imageData?.write(to: spriteURL)
@@ -61,10 +63,12 @@ struct PokemonFetchTask: BackgroundManagerTaskProtocol {
                     print("Error \(error.localizedDescription) saving sprite image to cache: \(spriteURL.path)")
                 }
 
+                pokemonLedger.saveShared(pokemon: ledgerEntry, image: maskedImage)
+
                 NotificationCenter.default.post(
                         name: .newPokemonFetched,
                         object: self,
-                        userInfo: ["pokemon": pokemon, "frontDefault": image]
+                        userInfo: ["pokemon": pokemon, "frontDefault": maskedImage]
                     )
 
                 completion?(true)

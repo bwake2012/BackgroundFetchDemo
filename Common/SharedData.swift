@@ -3,27 +3,41 @@
 //  TodayWidgetDemo
 //
 //  Created by Robert Wakefield on 1/4/20.
-//  Copyright © 2020 State Farm. All rights reserved.
 //
 
 import Foundation
 
-typealias SavedResult = Result<Data, Error>
+typealias SharedResult = Result<Data, Error>
 
 /// Read and write from a shared file in the app group.
 
-struct SavedData {
+struct SharedData {
 
     var presentedItemURL: URL? {
 
         return contentURL
     }
 
-    fileprivate let contentURL: URL
+    var presentedItemOperationQueue: OperationQueue = OperationQueue()
 
-    init(_ url: URL) {
+    let appGroupIdentifier: String
+    let path: String
 
-        self.contentURL = url
+    fileprivate var contentURL: URL {
+
+        var contentURL: URL = FileManager.default.containerURL(
+                    forSecurityApplicationGroupIdentifier: appGroupIdentifier
+                )!
+
+        contentURL = contentURL.appendingPathComponent(path)
+
+        return contentURL
+    }
+
+    init(appGroupIdentifier: String, path: String) {
+
+        self.appGroupIdentifier = appGroupIdentifier
+        self.path = path
     }
 
     /// Read data from the shared file.
@@ -65,7 +79,7 @@ struct SavedData {
 
     /// Write Data to the shared file
 
-    func writeData(_ data: Data) -> SavedResult {
+    func writeData(_ data: Data) -> SharedResult {
 
         var coordinatorError: NSError?
         var writeError: Error?

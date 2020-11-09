@@ -14,9 +14,25 @@
             filePath = "BackgroundFetchDemo/BackgroundFetchLedger.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "97"
-            endingLineNumber = "97"
+            startingLineNumber = "76"
+            endingLineNumber = "76"
             landmarkName = "addEntry(isBackground:name:pokemonID:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "C70CD5FF-0DFA-47ED-B306-F5897A036ED9"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "BackgroundFetchDemo/PokemonFetchTask.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "46"
+            endingLineNumber = "46"
+            landmarkName = "performTask(isBackground:completion:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

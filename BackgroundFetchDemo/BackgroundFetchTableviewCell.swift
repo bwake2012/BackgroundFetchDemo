@@ -18,7 +18,7 @@ class BackgroundFetchTableviewCell: UITableViewCell {
         return formatter
     }()
 
-    typealias LedgerEntry = BackgroundFetchLedger.PokemonFetchEntry
+    typealias LedgerEntry = PokemonFetchEntry
 
     @IBOutlet var pokemonImage: UIImageView?
     @IBOutlet var pokemonSpeciesName: UILabel?
@@ -28,6 +28,12 @@ class BackgroundFetchTableviewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+
+        if let pokemonImage = pokemonImage {
+
+            pokemonImage.layer.cornerRadius = (pokemonImage.bounds.height / 2)
+            pokemonImage.layer.masksToBounds = true
+        }
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -54,10 +60,7 @@ class BackgroundFetchTableviewCell: UITableViewCell {
         pokemonSpeciesName?.text = entry.name
         pokemonFetchDate?.text = Self.dateFormatter.string(from: entry.dateTime)
         backgroundStatus?.text = entry.isBackground ? "Background" : "Manual"
-        do {
-            pokemonImage?.image = UIImage(data: try Data(contentsOf: entry.spriteURL))
-        } catch {
-            print("Error: \(error.localizedDescription) retrieving sprite from: \(entry.spriteURL)")
-        }
+
+        pokemonImage?.image = entry.pokemonImage
     }
 }

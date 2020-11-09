@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import WidgetKit
 
 class BackgroundFetchLedger {
 
@@ -19,37 +20,6 @@ class BackgroundFetchLedger {
 
         return folderURL.appendingPathComponent("BackgroundTaskLedger").appendingPathExtension("JSON")
     }()
-
-
-    struct PokemonFetchEntry: Codable {
-
-        static let pokemonSpriteFolderURL: URL = {
-
-            let cacheURLs = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
-
-            guard let folderURL = cacheURLs.first?.appendingPathComponent("PokemonSprites") else {
-                preconditionFailure("Document folder in User Domain NOT FOUND!")
-            }
-
-            do {
-                try FileManager.default.createDirectory(at: folderURL, withIntermediateDirectories: true, attributes: nil)
-            } catch {
-                print("Error creating sprite cache directory: \(error.localizedDescription)")
-            }
-
-            return folderURL
-        }()
-
-        let dateTime: Date
-        let isBackground: Bool
-        let name: String
-        let pokemonID: Int
-
-        var spriteURL: URL {
-
-            return Self.pokemonSpriteFolderURL.appendingPathComponent("\(pokemonID)").appendingPathExtension("jpg")
-        }
-    }
 
     var entries: [PokemonFetchEntry]
 
@@ -70,6 +40,15 @@ class BackgroundFetchLedger {
                 ledgerEntries.sort { $0.dateTime > $1.dateTime }
             }
             self.entries = ledgerEntries
+
+            if let latestEntry = ledgerEntries.first {
+
+                if let latestData = try? Data(contentsOf: latestEntry.spriteURL),
+                   let latestImage = UIImage(data: latestData) {
+
+                    saveShared(pokemon: latestEntry, image: latestImage)
+                }
+            }
         }
 
     }
@@ -94,6 +73,66 @@ class BackgroundFetchLedger {
 
     func addEntry(isBackground: Bool = false, name: String = "", pokemonID: Int) {
 
-        addEntry(PokemonFetchEntry(dateTime: Date(), isBackground: isBackground, name: name, pokemonID: pokemonID))
+        let newEntry = PokemonFetchEntry(dateTime: Date(), isBackground: isBackground, name: name, pokemonID: pokemonID)
+        addEntry(newEntry)
+    }
+}
+
+extension PokemonFetchEntry {
+
+    static let pokemonSpriteFolderURL: URL = {
+
+        let cacheURLs = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+
+        guard let folderURL = cacheURLs.first?.appendingPathComponent("PokemonSprites") else {
+            preconditionFailure("Document folder in User Domain NOT FOUND!")
+        }
+
+        do {
+            try FileManager.default.createDirectory(at: folderURL, withIntermediateDirectories: true, attributes: nil)
+        } catch {
+            print("Error creating sprite cache directory: \(error.localizedDescription)")
+        }
+
+        return folderURL
+    }()
+
+    var spriteURL: URL {
+
+        return Self.pokemonSpriteFolderURL.appendingPathComponent("\(pokemonID)").appendingPathExtension("png")
+    }
+    var jpgSpriteURL: URL {
+
+        return Self.pokemonSpriteFolderURL.appendingPathComponent("\(pokemonID)").appendingPathExtension("jpg")
+    }
+
+    var pokemonImage: UIImage? {
+
+        var data = try? Data(contentsOf: spriteURL)
+        if nil == data {
+            data = try? Data(contentsOf: jpgSpriteURL)
+        }
+
+        if let data = data {
+            return UIImage(data: data)
+        } else {
+            print("Error retrieving sprite from: \(spriteURL)")
+        }
+
+        return nil
+    }
+}
+
+extension BackgroundFetchLedger {
+
+    func saveShared(pokemon: PokemonFetchEntry, image: UIImage) {
+
+        let sharedPokemon = SharedJSON(appGroupIdentifier: CommonConstants.appGroupIdentifier, path: CommonConstants.demoContentPokemonJSON)
+        let sharedPNG = SharedPNG(appGroupIdentifier: CommonConstants.appGroupIdentifier, path: CommonConstants.demoContentPokemonImage)
+
+        _ = sharedPokemon.saveObject(pokemon)
+        _ = sharedPNG.saveImage(image)
+
+        WidgetCenter.shared.reloadTimelines(ofKind: CommonConstants.simpleDemoWidgetKind)
     }
 }
