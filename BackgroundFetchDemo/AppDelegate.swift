@@ -10,7 +10,7 @@ import UIKit
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-    var backgroundManager = BackgroundManager(PokemonFetchTask())
+    lazy var backgroundManager = BackgroundManager(PokemonFetchTask())
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
 
