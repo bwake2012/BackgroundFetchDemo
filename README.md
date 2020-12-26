@@ -24,4 +24,4 @@ It took me a while to be certain that it works. It's interesting that Apple's (C
 
 I did make old style background fetch work in my [TodayWidgetDemo](https://github.com/bwake2012/TodayWidgetDemo).
 
-![Background Fetch Demo Screenshot](withTodayWidget/simulatorScreenShot.jpg?raw=true?raw=true "Background Fetch Demo Screenshot")
+![Background Fetch Demo Screenshot](./simulatorScreenShot.jpg?raw=true?raw=true "Background Fetch Demo Screenshot")
