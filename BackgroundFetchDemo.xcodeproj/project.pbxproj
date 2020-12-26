@@ -94,7 +94,7 @@
 		C4B091AF2553576700CCAAD4 /* NSBundle+AppVersion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSBundle+AppVersion.swift"; sourceTree = "<group>"; };
 		C4B091B5255357A000CCAAD4 /* NSObject+className.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSObject+className.swift"; sourceTree = "<group>"; };
 		C4B091BD2553582700CCAAD4 /* UITableViewCell+dequeueReusableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableViewCell+dequeueReusableCell.swift"; sourceTree = "<group>"; };
-		C4B091E02554A47E00CCAAD4 /* Screenshot 2020-11-05 at 3.19.09 PM.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Screenshot 2020-11-05 at 3.19.09 PM.jpg"; sourceTree = "<group>"; };
+		C4B091E02554A47E00CCAAD4 /* simulatorScreenShot.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = simulatorScreenShot.jpg; sourceTree = "<group>"; };
 		C4B091E22554A52400CCAAD4 /* ObjectSharedProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObjectSharedProtocol.swift; sourceTree = "<group>"; };
 		C4B091E32554A52400CCAAD4 /* SharedPNG.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedPNG.swift; sourceTree = "<group>"; };
 		C4B091E42554A52400CCAAD4 /* SharedJSON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedJSON.swift; sourceTree = "<group>"; };
@@ -220,7 +220,7 @@
 			children = (
 				C4B0923C2555D8E600CCAAD4 /* TodayWidgetExtension.entitlements */,
 				C4B091762550A42500CCAAD4 /* README.md */,
-				C4B091E02554A47E00CCAAD4 /* Screenshot 2020-11-05 at 3.19.09 PM.jpg */,
+				C4B091E02554A47E00CCAAD4 /* simulatorScreenShot.jpg */,
 				C4B091E12554A52400CCAAD4 /* Common */,
 				C4CFFE96254A0ADB00B8D59A /* BackgroundFetchDemo */,
 				C4CFFEAD254A0ADE00B8D59A /* BackgroundFetchDemoTests */,

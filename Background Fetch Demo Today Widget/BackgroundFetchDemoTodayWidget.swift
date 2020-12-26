@@ -73,12 +73,19 @@ struct SimpleEntry: TimelineEntry {
         )
 }
 
+struct PlaceholderView: View {
+    var body: some View {
+        EntryView(entry: SimpleEntry.placeholder)
+            .redacted(reason: .placeholder)
+    }
+}
+
 struct EntryDetailView: View {
 
     static var dateFormatter: DateFormatter = {
 
         let dateFormatter = DateFormatter()
-        dateFormatter.dateStyle = .short
+        dateFormatter.dateStyle = .medium
         dateFormatter.timeStyle = .short
 
         return dateFormatter
@@ -130,6 +137,7 @@ struct MediumEntryView: View {
                 .frame(
                     minWidth: 0, maxWidth: .infinity,
                     minHeight: 0, maxHeight: .infinity)
+                .padding()
         }
     }
 }
@@ -165,11 +173,19 @@ struct BackgroundFetchDemoTodayWidget: Widget {
     }
 }
 
+#if DEBUG
 struct BackgroundFetchDemoTodayWidget_Previews: PreviewProvider {
 
     static var previews: some View {
 
-        EntryView(entry: SimpleEntry.placeholder)
-            .previewContext(WidgetPreviewContext(family: .systemMedium))
+        Group {
+
+            EntryView(entry: SimpleEntry.placeholder)
+                .previewContext(WidgetPreviewContext(family: .systemMedium))
+
+            EntryView(entry: SimpleEntry.placeholder)
+                .previewContext(WidgetPreviewContext(family: .systemSmall))
+        }
     }
 }
+#endif
