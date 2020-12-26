@@ -1,5 +1,7 @@
 # BackgroundFetchDemo
 
+![Background Fetch Demo Screenshot](./simulatorScreenShot.jpg?raw=true?raw=true "Background Fetch Demo Screenshot")
+
 This is a program to demonstrate the new `BackgroundTasks` framework in iOS. 
 
 I read a number of articles about the new framework:
@@ -23,5 +25,3 @@ I added a Today widget to display the results of the most recent fetch without a
 It took me a while to be certain that it works. It's interesting that Apple's (ColorFeed) demo doesn't make any network calls. Andy Ibanez's sample doesn't appear to fetch Pokémon either.
 
 I did make old style background fetch work in my [TodayWidgetDemo](https://github.com/bwake2012/TodayWidgetDemo).
-
-![Background Fetch Demo Screenshot](./simulatorScreenShot.jpg?raw=true?raw=true "Background Fetch Demo Screenshot")
