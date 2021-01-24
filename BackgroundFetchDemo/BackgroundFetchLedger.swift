@@ -43,10 +43,10 @@ class BackgroundFetchLedger {
 
             if let latestEntry = ledgerEntries.first {
 
-                if let latestData = try? Data(contentsOf: latestEntry.spriteURL),
+                if let latestData = try? Data(contentsOf: latestEntry.spriteSavedURL),
                    let latestImage = UIImage(data: latestData) {
 
-                    saveShared(pokemon: latestEntry, image: latestImage)
+                    saveToShared(pokemon: latestEntry, image: latestImage)
                 }
             }
         }
@@ -97,7 +97,7 @@ extension PokemonFetchEntry {
         return folderURL
     }()
 
-    var spriteURL: URL {
+    var spriteSavedURL: URL {
 
         return Self.pokemonSpriteFolderURL.appendingPathComponent("\(pokemonID)").appendingPathExtension("png")
     }
@@ -108,15 +108,16 @@ extension PokemonFetchEntry {
 
     var pokemonImage: UIImage? {
 
-        var data = try? Data(contentsOf: spriteURL)
+        var data = try? Data(contentsOf: spriteSavedURL)
         if nil == data {
+            print("Error retrieving sprite from: \(spriteSavedURL)")
             data = try? Data(contentsOf: jpgSpriteURL)
         }
 
         if let data = data {
             return UIImage(data: data)
         } else {
-            print("Error retrieving sprite from: \(spriteURL)")
+            print("Error retrieving sprite from: \(Self.pokemonSpriteFolderURL)")
         }
 
         return nil
@@ -125,13 +126,16 @@ extension PokemonFetchEntry {
 
 extension BackgroundFetchLedger {
 
-    func saveShared(pokemon: PokemonFetchEntry, image: UIImage) {
+    func saveToShared(pokemon: PokemonFetchEntry, image: UIImage) {
 
         let sharedPokemon = SharedJSON(appGroupIdentifier: CommonConstants.appGroupIdentifier, path: CommonConstants.demoContentPokemonJSON)
         let sharedPNG = SharedPNG(appGroupIdentifier: CommonConstants.appGroupIdentifier, path: CommonConstants.demoContentPokemonImage)
 
-        _ = sharedPokemon.saveObject(pokemon)
-        _ = sharedPNG.saveImage(image)
+        // only share the image if we saved the pokemon entry successfully
+        if case .success(_) = sharedPokemon.saveObject(pokemon) {
+
+            _ = sharedPNG.saveImage(image)
+        }
 
         WidgetCenter.shared.reloadTimelines(ofKind: CommonConstants.simpleDemoWidgetKind)
     }

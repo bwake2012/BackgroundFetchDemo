@@ -54,7 +54,7 @@ struct PokemonFetchTask: BackgroundManagerTaskProtocol {
                 pokemonLedger.addEntry(ledgerEntry)
                 pokemonLedger.save()
 
-                let spriteURL = ledgerEntry.spriteURL
+                let spriteURL = ledgerEntry.spriteSavedURL
                 let imageData = maskedImage.pngData()
 
                 do {
@@ -63,7 +63,7 @@ struct PokemonFetchTask: BackgroundManagerTaskProtocol {
                     print("Error \(error.localizedDescription) saving sprite image to cache: \(spriteURL.path)")
                 }
 
-                pokemonLedger.saveShared(pokemon: ledgerEntry, image: maskedImage)
+                pokemonLedger.saveToShared(pokemon: ledgerEntry, image: maskedImage)
 
                 NotificationCenter.default.post(
                         name: .newPokemonFetched,
