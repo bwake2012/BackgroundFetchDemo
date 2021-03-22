@@ -1,6 +1,6 @@
 //
 //  SharedPNG.swift
-//  TodayWidgetDemo
+//  BackgroundFetchDemo
 //
 //  Created by Bob Wakefield on 1/19/20.
 //  Copyright © 2020 Cockleburr Software. All rights reserved.
@@ -24,17 +24,13 @@ enum PNGError: Error {
     }
 }
 
-class SharedPNG {
+class SavedPNG {
 
-    fileprivate let sharedData: SharedData
+    fileprivate let savedData: SavedData
 
-    var appGroupIdentifier: String { return sharedData.appGroupIdentifier }
+    required init(url: URL) {
 
-    var path: String { return sharedData.path }
-
-    required init(appGroupIdentifier: String, path: String) {
-
-        self.sharedData = SharedData(appGroupIdentifier: appGroupIdentifier, path: path)
+        self.savedData = SavedData(url)
     }
 
     func saveImage(_ image: UIImage) -> Result<UIImage, Error> {
@@ -44,7 +40,7 @@ class SharedPNG {
             return .failure(PNGError.noPNGDataInImage)
         }
 
-        let result = sharedData.writeData(data)
+        let result = savedData.writeData(data)
         switch result {
         case .failure(let error):
             return .failure(error)
@@ -55,7 +51,7 @@ class SharedPNG {
 
     func getImage() -> Result<UIImage, Error> {
 
-        let result = sharedData.readData()
+        let result = savedData.readData()
 
         switch result {
 
@@ -71,11 +67,11 @@ class SharedPNG {
 
     func metadata() -> Result<[FileAttributeKey: Any], Error> {
 
-        return sharedData.metadata()
+        return savedData.metadata()
     }
 
     func remove() -> Error? {
 
-        return sharedData.remove()
+        return savedData.remove()
     }
 }

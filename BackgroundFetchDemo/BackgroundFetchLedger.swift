@@ -128,8 +128,11 @@ extension BackgroundFetchLedger {
 
     func saveToShared(pokemon: PokemonFetchEntry, image: UIImage) {
 
-        let sharedPokemon = SharedJSON(appGroupIdentifier: CommonConstants.appGroupIdentifier, path: CommonConstants.demoContentPokemonJSON)
-        let sharedPNG = SharedPNG(appGroupIdentifier: CommonConstants.appGroupIdentifier, path: CommonConstants.demoContentPokemonImage)
+        let sharedPokemonURL = CommonConstants.sharedURL(path: CommonConstants.demoContentPokemonJSON)
+        let sharedPokemon = SavedJSON(url: sharedPokemonURL)
+
+        let sharedPNGURL = CommonConstants.sharedURL(path: CommonConstants.demoContentPokemonImage)
+        let sharedPNG = SavedPNG(url: sharedPNGURL)
 
         // only share the image if we saved the pokemon entry successfully
         if case .success(_) = sharedPokemon.saveObject(pokemon) {

@@ -16,7 +16,7 @@ struct Provider: TimelineProvider {
 
     func getSnapshot(in context: Context, completion: @escaping (SimpleEntry) -> ()) {
 
-        let entry = loadEntry()
+        let entry = SimpleEntry.loadSharedEntry()
         completion(entry)
     }
 
@@ -31,27 +31,6 @@ struct Provider: TimelineProvider {
 
             completion(timeline)
         }
-    }
-
-    func loadEntry() -> SimpleEntry {
-
-        let sharedPokemon = SharedJSON(appGroupIdentifier: CommonConstants.appGroupIdentifier, path: CommonConstants.demoContentPokemonJSON)
-        let sharedPNG = SharedPNG(appGroupIdentifier: CommonConstants.appGroupIdentifier, path: CommonConstants.demoContentPokemonImage)
-
-        let result: Result<PokemonFetchEntry, Error> = sharedPokemon.getObject()
-        switch result {
-        case .failure(let error):
-            print("Pokemon entry error: \(error.localizedDescription)")
-        case .success(let pokemonEntry):
-            let result: Result<UIImage, Error> = sharedPNG.getImage()
-            switch result {
-            case .failure(let error):
-                print("Pokemon image error: \(error.localizedDescription)")
-            case .success(let image):
-                return SimpleEntry(date: Date(), pokemon: pokemonEntry, image: image)
-            }
-        }
-        return SimpleEntry.placeholder
     }
 }
 
@@ -71,10 +50,36 @@ struct SimpleEntry: TimelineEntry {
             ),
             image: UIImage(named: "Placeholder")!
         )
+
+
+    static func loadSharedEntry() -> SimpleEntry {
+
+        let sharedPokemonURL = CommonConstants.sharedURL(path: CommonConstants.demoContentPokemonJSON)
+        let sharedPNGURL = CommonConstants.sharedURL(path: CommonConstants.demoContentPokemonImage)
+        let sharedPokemon = SavedJSON(url: sharedPokemonURL)
+        let sharedPNG = SavedPNG(url: sharedPNGURL)
+
+        let result: Result<PokemonFetchEntry, Error> = sharedPokemon.getObject()
+        switch result {
+        case .failure(let error):
+            print("Pokemon entry error: \(error.localizedDescription)")
+        case .success(let pokemonEntry):
+            let result: Result<UIImage, Error> = sharedPNG.getImage()
+            switch result {
+            case .failure(let error):
+                print("Pokemon image error: \(error.localizedDescription)")
+            case .success(let image):
+                return SimpleEntry(date: Date(), pokemon: pokemonEntry, image: image)
+            }
+        }
+        return Self.placeholder
+    }
 }
 
 struct PlaceholderView: View {
+
     var body: some View {
+
         EntryView(entry: SimpleEntry.placeholder)
             .redacted(reason: .placeholder)
     }
@@ -120,6 +125,7 @@ struct SmallEntryView: View {
                 .aspectRatio(contentMode: .fit)
             EntryDetailView(entry: entry)
                 .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity)
+                .padding([.leading, .trailing, .bottom], 4)
         }.padding()
     }
 }
@@ -129,15 +135,18 @@ struct MediumEntryView: View {
     var entry: Provider.Entry
 
     var body: some View {
+        
         HStack {
+
             Image(uiImage: entry.image)
                 .resizable()
                 .aspectRatio(contentMode: .fit)
+
             EntryDetailView(entry: entry)
                 .frame(
                     minWidth: 0, maxWidth: .infinity,
                     minHeight: 0, maxHeight: .infinity)
-                .padding()
+                .padding([.top, .bottom, .trailing], 4)
         }
     }
 }

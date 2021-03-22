@@ -1,16 +1,16 @@
 //
-//  SharedContent.swift
-//  TodayWidgetDemo
+//  SavedData.swift
+//  BackgroundFetchDemo
 //
-//  Created by Robert Wakefield on 1/4/20.
-//  Copyright © 2020 State Farm. All rights reserved.
+//  Created by Bob Wakefield on 1/19/20.
+//  Copyright © 2020 Cockleburr Software. All rights reserved.
 //
 
 import Foundation
 
 typealias SavedResult = Result<Data, Error>
 
-/// Read and write from a shared file in the app group.
+/// Read and write data from a shared file at the URL.
 
 struct SavedData {
 
@@ -28,7 +28,7 @@ struct SavedData {
 
     /// Read data from the shared file.
 
-    func readData() -> SharedResult {
+    func readData() -> SavedResult {
 
         var data: Data?
         var coordinatorError: NSError?

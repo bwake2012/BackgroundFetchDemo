@@ -2,8 +2,8 @@
 //  SharedJSON.swift
 //  TodayWidgetDemo
 //
-//  Created by Robert Wakefield on 1/13/20.
-//  Copyright © 2020 State Farm. All rights reserved.
+//  Created by Bob Wakefield on 1/19/20.
+//  Copyright © 2020 Cockleburr Software. All rights reserved.
 //
 
 import UIKit

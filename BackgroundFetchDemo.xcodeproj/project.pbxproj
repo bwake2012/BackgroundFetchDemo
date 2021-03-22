@@ -10,23 +10,11 @@
 		C4B091B02553576700CCAAD4 /* NSBundle+AppVersion.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4B091AF2553576700CCAAD4 /* NSBundle+AppVersion.swift */; };
 		C4B091B6255357A000CCAAD4 /* NSObject+className.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4B091B5255357A000CCAAD4 /* NSObject+className.swift */; };
 		C4B091BE2553582700CCAAD4 /* UITableViewCell+dequeueReusableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4B091BD2553582700CCAAD4 /* UITableViewCell+dequeueReusableCell.swift */; };
-		C4B091E82554A57F00CCAAD4 /* SharedArchive.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4B091E72554A52400CCAAD4 /* SharedArchive.swift */; };
-		C4B091E92554A57F00CCAAD4 /* SharedPNG.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4B091E32554A52400CCAAD4 /* SharedPNG.swift */; };
-		C4B091EA2554A57F00CCAAD4 /* SharedData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4B091E52554A52400CCAAD4 /* SharedData.swift */; };
-		C4B091EB2554A57F00CCAAD4 /* ObjectSharedProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4B091E22554A52400CCAAD4 /* ObjectSharedProtocol.swift */; };
-		C4B091EC2554A57F00CCAAD4 /* SharedJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4B091E42554A52400CCAAD4 /* SharedJSON.swift */; };
-		C4B091ED2554A57F00CCAAD4 /* CommonConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4B091E62554A52400CCAAD4 /* CommonConstants.swift */; };
 		C4B091FC2554A97900CCAAD4 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4B091FB2554A97900CCAAD4 /* WidgetKit.framework */; };
 		C4B091FE2554A97900CCAAD4 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4B091FD2554A97900CCAAD4 /* SwiftUI.framework */; };
 		C4B092012554A97900CCAAD4 /* BackgroundFetchDemoTodayWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4B092002554A97900CCAAD4 /* BackgroundFetchDemoTodayWidget.swift */; };
 		C4B092032554A97B00CCAAD4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C4B092022554A97B00CCAAD4 /* Assets.xcassets */; };
 		C4B092072554A97B00CCAAD4 /* TodayWidgetExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = C4B091F92554A97900CCAAD4 /* TodayWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		C4B092102554AAD400CCAAD4 /* SharedData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4B091E52554A52400CCAAD4 /* SharedData.swift */; };
-		C4B092112554AAD400CCAAD4 /* SharedJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4B091E42554A52400CCAAD4 /* SharedJSON.swift */; };
-		C4B092122554AAD400CCAAD4 /* CommonConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4B091E62554A52400CCAAD4 /* CommonConstants.swift */; };
-		C4B092132554AAD400CCAAD4 /* ObjectSharedProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4B091E22554A52400CCAAD4 /* ObjectSharedProtocol.swift */; };
-		C4B092142554AAD400CCAAD4 /* SharedPNG.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4B091E32554A52400CCAAD4 /* SharedPNG.swift */; };
-		C4B092192554AAD900CCAAD4 /* SharedArchive.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4B091E72554A52400CCAAD4 /* SharedArchive.swift */; };
 		C4B092232554B29800CCAAD4 /* PokemonFetchEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4B092222554B29800CCAAD4 /* PokemonFetchEntry.swift */; };
 		C4B092242554B29800CCAAD4 /* PokemonFetchEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4B092222554B29800CCAAD4 /* PokemonFetchEntry.swift */; };
 		C4B0922F2555CF4C00CCAAD4 /* UIImage+transparent.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4B0922E2555CF4B00CCAAD4 /* UIImage+transparent.swift */; };
@@ -49,6 +37,12 @@
 		C4CFFF51254BBC1500B8D59A /* PokeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4CFFF4F254BBC1500B8D59A /* PokeManager.swift */; };
 		C4CFFF52254BBC1500B8D59A /* Pokemon.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4CFFF50254BBC1500B8D59A /* Pokemon.swift */; };
 		C4CFFF5A254C762400B8D59A /* BackgroundFetchTableviewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4CFFF59254C762400B8D59A /* BackgroundFetchTableviewCell.swift */; };
+		C4FDBFAE25E30D2E00BD0CD0 /* CommonConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4B091E62554A52400CCAAD4 /* CommonConstants.swift */; };
+		C4FDBFB325E30D3100BD0CD0 /* CommonConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4B091E62554A52400CCAAD4 /* CommonConstants.swift */; };
+		C4FDBFBC25E31D1F00BD0CD0 /* SavedPNG.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4FDBFBB25E31D1F00BD0CD0 /* SavedPNG.swift */; };
+		C4FDBFC125E31E7900BD0CD0 /* SavedPNG.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4FDBFBB25E31D1F00BD0CD0 /* SavedPNG.swift */; };
+		C4FDBFC225E31E7900BD0CD0 /* SavedData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4CFFED5254A10EC00B8D59A /* SavedData.swift */; };
+		C4FDBFC325E31E7900BD0CD0 /* SavedJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4CFFED4254A10EC00B8D59A /* SavedJSON.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -95,12 +89,7 @@
 		C4B091B5255357A000CCAAD4 /* NSObject+className.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSObject+className.swift"; sourceTree = "<group>"; };
 		C4B091BD2553582700CCAAD4 /* UITableViewCell+dequeueReusableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableViewCell+dequeueReusableCell.swift"; sourceTree = "<group>"; };
 		C4B091E02554A47E00CCAAD4 /* simulatorScreenShot.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = simulatorScreenShot.jpg; sourceTree = "<group>"; };
-		C4B091E22554A52400CCAAD4 /* ObjectSharedProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObjectSharedProtocol.swift; sourceTree = "<group>"; };
-		C4B091E32554A52400CCAAD4 /* SharedPNG.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedPNG.swift; sourceTree = "<group>"; };
-		C4B091E42554A52400CCAAD4 /* SharedJSON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedJSON.swift; sourceTree = "<group>"; };
-		C4B091E52554A52400CCAAD4 /* SharedData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedData.swift; sourceTree = "<group>"; };
 		C4B091E62554A52400CCAAD4 /* CommonConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonConstants.swift; sourceTree = "<group>"; };
-		C4B091E72554A52400CCAAD4 /* SharedArchive.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedArchive.swift; sourceTree = "<group>"; };
 		C4B091F12554A88000CCAAD4 /* BackgroundFetchDemo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = BackgroundFetchDemo.entitlements; sourceTree = "<group>"; };
 		C4B091F92554A97900CCAAD4 /* TodayWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = TodayWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		C4B091FB2554A97900CCAAD4 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
@@ -134,6 +123,7 @@
 		C4CFFF4F254BBC1500B8D59A /* PokeManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PokeManager.swift; sourceTree = "<group>"; };
 		C4CFFF50254BBC1500B8D59A /* Pokemon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Pokemon.swift; sourceTree = "<group>"; };
 		C4CFFF59254C762400B8D59A /* BackgroundFetchTableviewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundFetchTableviewCell.swift; sourceTree = "<group>"; };
+		C4FDBFBB25E31D1F00BD0CD0 /* SavedPNG.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SavedPNG.swift; path = Common/SavedPNG.swift; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -185,12 +175,7 @@
 		C4B091E12554A52400CCAAD4 /* Common */ = {
 			isa = PBXGroup;
 			children = (
-				C4B091E22554A52400CCAAD4 /* ObjectSharedProtocol.swift */,
-				C4B091E32554A52400CCAAD4 /* SharedPNG.swift */,
-				C4B091E42554A52400CCAAD4 /* SharedJSON.swift */,
-				C4B091E52554A52400CCAAD4 /* SharedData.swift */,
 				C4B091E62554A52400CCAAD4 /* CommonConstants.swift */,
-				C4B091E72554A52400CCAAD4 /* SharedArchive.swift */,
 				C4B092222554B29800CCAAD4 /* PokemonFetchEntry.swift */,
 			);
 			path = Common;
@@ -254,6 +239,7 @@
 				C4CFFECA254A0AEE00B8D59A /* BackgroundManager.swift */,
 				C4CFFF4A254BBAFF00B8D59A /* PokemonFetchTask.swift */,
 				C4CFFECF254A0CAC00B8D59A /* BackgroundFetchLedger.swift */,
+				C4FDBFBB25E31D1F00BD0CD0 /* SavedPNG.swift */,
 				C4CFFED5254A10EC00B8D59A /* SavedData.swift */,
 				C4CFFED4254A10EC00B8D59A /* SavedJSON.swift */,
 				C4CFFE9B254A0ADB00B8D59A /* ViewController.swift */,
@@ -484,16 +470,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C4B092102554AAD400CCAAD4 /* SharedData.swift in Sources */,
-				C4B092192554AAD900CCAAD4 /* SharedArchive.swift in Sources */,
 				C4B092012554A97900CCAAD4 /* BackgroundFetchDemoTodayWidget.swift in Sources */,
+				C4FDBFC125E31E7900BD0CD0 /* SavedPNG.swift in Sources */,
+				C4FDBFB325E30D3100BD0CD0 /* CommonConstants.swift in Sources */,
 				C4B092302555CF4C00CCAAD4 /* UIImage+transparent.swift in Sources */,
-				C4B092122554AAD400CCAAD4 /* CommonConstants.swift in Sources */,
-				C4B092112554AAD400CCAAD4 /* SharedJSON.swift in Sources */,
-				C4B092142554AAD400CCAAD4 /* SharedPNG.swift in Sources */,
-				C4B092132554AAD400CCAAD4 /* ObjectSharedProtocol.swift in Sources */,
+				C4FDBFC225E31E7900BD0CD0 /* SavedData.swift in Sources */,
 				C4B092372555D28A00CCAAD4 /* CGImage+colorAt.swift in Sources */,
 				C4B092242554B29800CCAAD4 /* PokemonFetchEntry.swift in Sources */,
+				C4FDBFC325E31E7900BD0CD0 /* SavedJSON.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -503,25 +487,21 @@
 			files = (
 				C4CFFED0254A0CAC00B8D59A /* BackgroundFetchLedger.swift in Sources */,
 				C4B092232554B29800CCAAD4 /* PokemonFetchEntry.swift in Sources */,
-				C4B091EB2554A57F00CCAAD4 /* ObjectSharedProtocol.swift in Sources */,
 				C4B091B02553576700CCAAD4 /* NSBundle+AppVersion.swift in Sources */,
+				C4FDBFBC25E31D1F00BD0CD0 /* SavedPNG.swift in Sources */,
 				C4CFFED7254A10EC00B8D59A /* SavedData.swift in Sources */,
+				C4FDBFAE25E30D2E00BD0CD0 /* CommonConstants.swift in Sources */,
 				C4B091BE2553582700CCAAD4 /* UITableViewCell+dequeueReusableCell.swift in Sources */,
 				C4B0922F2555CF4C00CCAAD4 /* UIImage+transparent.swift in Sources */,
-				C4B091E82554A57F00CCAAD4 /* SharedArchive.swift in Sources */,
-				C4B091ED2554A57F00CCAAD4 /* CommonConstants.swift in Sources */,
 				C4CFFE9C254A0ADB00B8D59A /* ViewController.swift in Sources */,
 				C4B092362555D28A00CCAAD4 /* CGImage+colorAt.swift in Sources */,
-				C4B091E92554A57F00CCAAD4 /* SharedPNG.swift in Sources */,
 				C4CFFED6254A10EC00B8D59A /* SavedJSON.swift in Sources */,
 				C4CFFECB254A0AEE00B8D59A /* BackgroundManager.swift in Sources */,
 				C4CFFF5A254C762400B8D59A /* BackgroundFetchTableviewCell.swift in Sources */,
-				C4B091EA2554A57F00CCAAD4 /* SharedData.swift in Sources */,
 				C4CFFF52254BBC1500B8D59A /* Pokemon.swift in Sources */,
 				C4CFFF51254BBC1500B8D59A /* PokeManager.swift in Sources */,
 				C4B091B6255357A000CCAAD4 /* NSObject+className.swift in Sources */,
 				C4CFFE98254A0ADB00B8D59A /* AppDelegate.swift in Sources */,
-				C4B091EC2554A57F00CCAAD4 /* SharedJSON.swift in Sources */,
 				C4CFFF4B254BBAFF00B8D59A /* PokemonFetchTask.swift in Sources */,
 				C4CFFE9A254A0ADB00B8D59A /* SceneDelegate.swift in Sources */,
 			);
