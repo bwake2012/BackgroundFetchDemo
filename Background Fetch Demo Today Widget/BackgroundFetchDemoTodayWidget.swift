@@ -22,12 +22,18 @@ struct Provider: TimelineProvider {
 
     func getTimeline(in context: Context, completion: @escaping (Timeline<Entry>) -> ()) {
 
+        print("widget getTimeline")
+
         // Generate a timeline consisting of one entry.
         getSnapshot(in: context) { entry in
 
             let entries = [entry]
 
-            let timeline = Timeline(entries: entries, policy: .never)
+            var reloadPolicy: TimelineReloadPolicy = .never
+            if let nextUpdate = Calendar.current.date(byAdding: .minute, value: 30, to: Date()) {
+                reloadPolicy = .after(nextUpdate)
+            }
+            let timeline = Timeline(entries: entries, policy: reloadPolicy)
 
             completion(timeline)
         }
@@ -103,7 +109,7 @@ struct EntryDetailView: View {
         VStack(alignment: .leading) {
             Text(entry.pokemon.name)
                 .bold()
-            Text(Self.dateFormatter.string(from: entry.pokemon.dateTime))
+            Text(Self.dateFormatter.niceWrappingString(from: entry.pokemon.dateTime))
                 .font(.footnote)
                 .minimumScaleFactor(0.75)
                 .lineLimit(3)
@@ -198,3 +204,16 @@ struct BackgroundFetchDemoTodayWidget_Previews: PreviewProvider {
     }
 }
 #endif
+
+extension DateFormatter {
+
+    static let NBSP: String = "\u{00a0}"
+
+    func niceWrappingString(from date: Date) -> String {
+
+        return
+            self.string(from: date)
+                .replacingOccurrences(of: " ", with: Self.NBSP)
+                .replacingOccurrences(of: Self.NBSP + "at" + Self.NBSP, with: " at ")
+    }
+}
