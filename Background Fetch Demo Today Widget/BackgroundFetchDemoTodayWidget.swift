@@ -132,7 +132,8 @@ struct SmallEntryView: View {
             EntryDetailView(entry: entry)
                 .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity)
                 .padding([.leading, .trailing, .bottom], 4)
-        }.padding()
+        }
+        .padding()
     }
 }
 
@@ -163,10 +164,26 @@ struct EntryView : View {
     var entry: Provider.Entry
 
     var body: some View {
-        switch family {
-        case .systemSmall: SmallEntryView(entry: entry)
-        case .systemMedium: MediumEntryView(entry: entry)
-        default: SmallEntryView(entry: entry)
+
+        if #available(iOSApplicationExtension 17.0, *) {
+
+            VStack {
+                switch family {
+                case .systemSmall: SmallEntryView(entry: entry)
+                case .systemMedium: MediumEntryView(entry: entry)
+                default: SmallEntryView(entry: entry)
+                }
+            }
+            .containerBackground(.black, for: .widget)
+
+        } else {
+
+            switch family {
+            case .systemSmall: SmallEntryView(entry: entry)
+            case .systemMedium: MediumEntryView(entry: entry)
+            default: SmallEntryView(entry: entry)
+            }
+
         }
     }
 }
